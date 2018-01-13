@@ -1,12 +1,16 @@
 package com.libao;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 public class GirlController {
-    GirlRepository girlRepository;
+    @Autowired
+    private GirlRepository girlRepository;
+    @Autowired
+    private GirlService girlService;
 
     @GetMapping(value = "/girls")
     public List<Girl> girlList(){
@@ -42,5 +46,10 @@ public class GirlController {
     @GetMapping(value = "/girls/age{age}")
     public List<Girl> findByAge(@PathVariable("age") Integer age){
         return girlRepository.findByAge(age);
+    }
+
+    @PostMapping(value = "girls/two")
+    public void addTwoGirl(){
+         girlService.insertTwo();
     }
 }
