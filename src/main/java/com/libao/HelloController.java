@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 public class HelloController {
    @Autowired
     private GirlProperties girlProperties;
-    @RequestMapping(value =  "/say", method = RequestMethod.GET)
-    public String say(@RequestParam("id") Integer myid){
-        return "id: " + myid;
+    //@RequestMapping(value =  "/say", method = RequestMethod.GET)
+    @GetMapping(value = "/say")
+    public String say(@RequestParam(value="id", required = false, defaultValue = "0") Integer myId){
+        return "id: " + myId;
         //return girlProperties.getCupSize();
     }
 }
