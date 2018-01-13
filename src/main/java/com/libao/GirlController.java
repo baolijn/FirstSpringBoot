@@ -38,4 +38,9 @@ public class GirlController {
     public void deleteGirl(@PathVariable("id") Integer id){
         girlRepository.delete(id);
     }
+
+    @GetMapping(value = "/girls/age{age}")
+    public List<Girl> findByAge(@PathVariable("age") Integer age){
+        return girlRepository.findByAge(age);
+    }
 }
