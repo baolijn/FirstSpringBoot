@@ -2,12 +2,14 @@ package com.libao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class GirlService {
     @Autowired
     GirlRepository girlRepository;
 
+    @Transactional
     public void insertTwo(){
         Girl girl1 =new Girl();
         girl1.setAge(19);
