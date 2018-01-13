@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HelloController {
    @Autowired
     private GirlProperties girlProperties;
-    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    @RequestMapping(value = {"/hello", "/hi"}, method = RequestMethod.GET)
     public String say(){
         return girlProperties.getCupSize();
     }
